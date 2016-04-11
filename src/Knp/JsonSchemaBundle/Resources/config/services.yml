@@ -17,7 +17,7 @@ services:
             - @json_schema.factory.property
 
     json_schema.registry:
-        public: false
+        public: true
         class: Knp\JsonSchemaBundle\Schema\SchemaRegistry
 
     json_schema.factory.schema:
