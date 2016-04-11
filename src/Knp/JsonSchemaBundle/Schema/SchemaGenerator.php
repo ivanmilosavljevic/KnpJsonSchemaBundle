@@ -46,7 +46,7 @@ class SchemaGenerator
         $refl      = $this->reflectionFactory->create($className);
         $schema    = $this->schemaFactory->createSchema(ucfirst($alias));
 
-        $schema->setId($this->urlGenerator->generate('show_json_schema', array('alias' => $alias), true) . '#');
+        $schema->setId('http://example.org');
         $schema->setSchema(Schema::SCHEMA_V3);
         $schema->setType(Schema::TYPE_OBJECT);
 
