@@ -12,6 +12,7 @@ class Schema implements \JsonSerializable
     private $type;
     private $schema;
     private $properties;
+    private $additionalProperties;
 
     public function getTitle()
     {
@@ -63,6 +64,11 @@ class Schema implements \JsonSerializable
         $this->schema = $schema;
     }
 
+    public function setAdditionalProperties($additional)
+    {
+        $this->additionalProperties = $additional;
+    }
+
     public function jsonSerialize()
     {
         $properties = array();
@@ -72,11 +78,12 @@ class Schema implements \JsonSerializable
         }
 
         $serialized = array(
-            'title'      => $this->title,
-            'type'       => $this->type,
-            '$schema'    => $this->schema,
-            'id'         => $this->id,
-            'properties' => $this->properties,
+            'title'                 => $this->title,
+            'type'                  => $this->type,
+            '$schema'               => $this->schema,
+            'id'                    => $this->id,
+            'properties'            => $this->properties,
+            'additionalProperties'  => $this->additionalProperties,
         );
 
         $requiredProperties = array_keys(array_filter($this->properties, function ($property) {
