@@ -33,6 +33,17 @@ class RegisterPropertyHandlersPass implements CompilerPassInterface
                 array($this->referenceFactory->createReference($id), $this->getPriority($attributes))
             );
         }
+
+        $taggedServices = $container->findTaggedServiceIds(
+            'json_schema.property.strict_handler'
+        );
+
+        foreach ($taggedServices as $id => $attributes) {
+            $definition->addMethodCall(
+                'registerStrictPropertyHandler',
+                array($this->referenceFactory->createReference($id), $this->getPriority($attributes))
+            );
+        }
     }
 
     private function getPriority(array $attributes = array())

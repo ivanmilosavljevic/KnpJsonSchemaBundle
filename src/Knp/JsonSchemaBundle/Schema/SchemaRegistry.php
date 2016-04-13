@@ -16,15 +16,8 @@ class SchemaRegistry
             ));
         }
 
-        if ($this->hasNamespace($namespace) && $alias !== $this->getAlias($namespace)) {
-            throw new \Exception(sprintf(
-                'Namespace "%s" is already registered with alias "%s".',
-                $namespace,
-                $this->getAlias($namespace)
-            ));
-        }
-
         $this->registry[$alias] = $namespace;
+        $this->registry['strict_' . $alias] = $namespace;
     }
 
     public function all()

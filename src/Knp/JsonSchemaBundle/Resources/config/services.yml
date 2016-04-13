@@ -70,6 +70,7 @@ services:
             - @json_schema.registry
         tags:
             - { name: json_schema.property.handler, priority: 10 }
+            - { name: json_schema.property.strict_handler, priority: 10 }
 
     json_schema.property.handler.extra_validator_constraints_handler:
         public: false
@@ -78,6 +79,16 @@ services:
             - @validator.mapping.class_metadata_factory
         tags:
             - { name: json_schema.property.handler, priority: 20 }
+            - { name: json_schema.property.strict_handler, priority: 20 }
+
+    json_schema.property.handler.doctrine_reflection_handler:
+        public: false
+        class: Knp\JsonSchemaBundle\Property\DoctrineReflectionConstraintsHandler
+        arguments:
+            - @doctrine.orm.default_entity_manager
+        tags:
+            - { name: json_schema.property.handler, priority: 30 }
+            - { name: json_schema.property.strict_handler, priority: 30 }
 
     form.chain.guesser:
         public: false
