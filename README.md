@@ -1,8 +1,5 @@
-[![Build Status](https://travis-ci.org/KnpLabs/KnpJsonSchemaBundle.png?branch=master)](https://travis-ci.org/KnpLabs/KnpJsonSchemaBundle)
-
 Disclaimer
 -------------
-This bundle is under development.
 
 KnpJsonSchema Bundle
 =====================
