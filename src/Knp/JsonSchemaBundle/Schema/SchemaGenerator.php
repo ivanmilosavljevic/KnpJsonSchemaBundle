@@ -55,7 +55,8 @@ class SchemaGenerator
         $className = $this->schemaRegistry->getNamespace($alias);
         $refl      = $this->reflectionFactory->create($className);
         $schema    = $this->schemaFactory->createSchema(ucfirst($alias));
-
+        
+        $schema->setId('http://example.org');
         $schema->setSchema(Schema::SCHEMA_V3);
         $schema->setType(Schema::TYPE_OBJECT);
 
