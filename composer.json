@@ -15,7 +15,7 @@
         "symfony/form":                 "~2.3|~3.0",
         "symfony/finder":               "~2.3|~3.0",
         "doctrine/common":              "~2.3|~3.0",
-        "justinrainbow/json-schema":    ">=1.2.2"
+        "justinrainbow/json-schema":    "2.0.5"
     },
     "require-dev": {
         "phpspec/phpspec":              "~2.0"
