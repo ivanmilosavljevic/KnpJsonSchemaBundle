@@ -1,11 +1,11 @@
 {
-    "name": "lube/knp-json-schema-bundle",
+    "name": "ivanmilosavljevic/knp-json-schema-bundle",
     "description": "A bundle to generate json schema based on various metadata",
     "license": "MIT",
     "authors": [
         {
-            "name": "Sebastian Luberriaga",
-            "email": "sebastianlube@gmail.com"
+            "name": "Ivan Milosavljevic",
+            "email": "ivan.milosavljevich@gmail.com"
         }
     ],
     "require": {
