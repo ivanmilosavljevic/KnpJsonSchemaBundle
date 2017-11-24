@@ -88,6 +88,8 @@ class SchemaGenerator
             }
         }
 
+        $schema->setGroups($this->schemaRegistry->getGroups($alias));
+
         if (false === $this->validateSchema($schema)) {
             $message = "Generated schema is invalid. Please report on" .
                 "https://github.com/KnpLabs/KnpJsonSchemaBundle/issues/new.\n" .

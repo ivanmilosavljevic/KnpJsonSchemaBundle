@@ -44,6 +44,10 @@ class RegisterJsonSchemasPass implements CompilerPassInterface
                     $alias = $annotation->name ?: strtolower($refClass->getShortName());
                     $registry->addMethodCall('register', array($alias, $refClass->getName()));
                 }
+                if ($annotation instanceof \Knp\JsonSchemaBundle\Annotations\Groups) {
+                    $groups = !empty($annotation->groups[0]) ? $annotation->groups[0] : [];
+                    $registry->addMethodCall('groups', array($alias, $groups));
+                }
             }
         }
     }

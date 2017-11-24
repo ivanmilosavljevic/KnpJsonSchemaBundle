@@ -231,7 +231,7 @@ class Property implements \JsonSerializable
         return $this->options;
     }
 
-    public function setGroup(string $group)
+    public function setGroup($group)
     {
         $this->group = $group;
 
