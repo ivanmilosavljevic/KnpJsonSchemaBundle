@@ -83,7 +83,7 @@ class Schema implements \JsonSerializable
             '$schema'               => $this->schema,
             'id'                    => $this->id,
             'properties'            => $this->properties,
-            'additionalProperties'  => $this->additionalProperties,
+            'additionalProperties'  => $this->additionalProperties
         );
 
         $requiredProperties = array_keys(array_filter($this->properties, function ($property) {

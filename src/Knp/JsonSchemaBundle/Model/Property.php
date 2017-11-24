@@ -41,6 +41,7 @@ class Property implements \JsonSerializable
     protected $exclusiveMinimum = false;
     protected $exclusiveMaximum = false;
     protected $format;
+    protected $group;
     protected $options;
     protected $enum;
     protected $disallowed = array();
@@ -230,6 +231,18 @@ class Property implements \JsonSerializable
         return $this->options;
     }
 
+    public function setGroup(string $group)
+    {
+        $this->group = $group;
+
+        return $this;
+    }
+
+    public function getGroup()
+    {
+        return $this->group;
+    }
+
     public function setEnum(array $enum)
     {
         $this->enum = $enum;
@@ -359,6 +372,10 @@ class Property implements \JsonSerializable
 
         if ($this->title) {
             $serialized['title'] = $this->title;
+        }
+
+        if ($this->group) {
+            $serialized['group'] = $this->group;
         }
 
         if ($this->description) {
