@@ -88,16 +88,18 @@ class SchemaGenerator
             }
         }
 
-        if (false === $this->validateSchema($schema)) {
-            $message = "Generated schema is invalid. Please report on" .
-                "https://github.com/KnpLabs/KnpJsonSchemaBundle/issues/new.\n" .
-                "The following problem(s) were detected:\n";
-            foreach ($this->jsonValidator->getErrors() as $error) {
-                $message .= sprintf("[%s] %s\n", $error['property'], $error['message']);
-            }
-            $message .= sprintf("Json schema:\n%s", json_encode($schema, JSON_PRETTY_PRINT));
-            throw new \Exception($message);
-        }
+        $schema->setGroups($this->schemaRegistry->getGroups($alias));
+
+//        if (false === $this->validateSchema($schema)) {
+//            $message = "Generated schema is invalid. Please report on" .
+//                "https://github.com/KnpLabs/KnpJsonSchemaBundle/issues/new.\n" .
+//                "The following problem(s) were detected:\n";
+//            foreach ($this->jsonValidator->getErrors() as $error) {
+//                $message .= sprintf("[%s] %s\n", $error['property'], $error['message']);
+//            }
+//            $message .= sprintf("Json schema:\n%s", json_encode($schema, JSON_PRETTY_PRINT));
+//            throw new \Exception($message);
+//        }
 
         return $schema;
     }

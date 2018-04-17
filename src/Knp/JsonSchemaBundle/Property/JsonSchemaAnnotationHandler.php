@@ -51,6 +51,9 @@ class JsonSchemaAnnotationHandler implements PropertyHandlerInterface
             if ($constraint instanceof \Knp\JsonSchemaBundle\Annotations\Options) {
                 $property->setOptions($constraint->options);
             }
+            if ($constraint instanceof \Knp\JsonSchemaBundle\Annotations\Group) {
+                $property->setGroup($constraint->group);
+            }
             if ($constraint instanceof \Knp\JsonSchemaBundle\Annotations\Enum) {
                 $property->setEnum($constraint->enum);
             }

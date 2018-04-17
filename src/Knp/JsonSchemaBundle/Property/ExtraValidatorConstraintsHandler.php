@@ -18,7 +18,12 @@ class ExtraValidatorConstraintsHandler implements PropertyHandlerInterface
     {
         foreach ($this->getConstraintsForProperty($className, $property) as $constraint) {
             if ($constraint instanceof \Symfony\Component\Validator\Constraints\Choice) {
-                $property->setEnumeration($constraint->choices);
+              if ($constraint->callback && is_callable($constraint->callback)) {
+                  $choices = call_user_func($constraint->callback);
+              } else {
+                  $choices = $constraint->choices;
+              }
+              $property->setEnumeration($choices);
             }
             if ($constraint instanceof \Symfony\Component\Validator\Constraints\Length) {
                 $property->setMinimum($constraint->min);
